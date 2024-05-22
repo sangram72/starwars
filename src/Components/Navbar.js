@@ -1,21 +1,19 @@
-// components/Navbar.js
+
 import React from 'react';
 import { Box, Flex, Link as ChakraLink, Text,Button } from '@chakra-ui/react';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 const Navbar = ({ showFavorites, toggleFavoritesVisibility }) => {
   return (
     <Box bg="white" color="black" py={4}>
       <Flex justify="space-between" align="center" px={8} maxW="container.lg" mx="auto">
-        <NextLink href="/" passHref>
-          <ChakraLink>
+        <Link href="/" >
+      
             <Text fontWeight="bold">Star Wars Characters</Text>
-          </ChakraLink>
-        </NextLink>
+        
+        </Link>
         <Flex>
-          <NextLink href="/" passHref>
-            <ChakraLink mx={2}>Home</ChakraLink>
-          </NextLink>
+   
           
          
             {/* <ChakraLink mx={2} onClick={toggleFavoritesVisibility}>
