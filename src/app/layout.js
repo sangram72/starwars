@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{backgroundImage: `url("/star.jpg")`}}>
+      <body className={inter.className} style={{backgroundImage: `url("./back.jpg")`}}>
       <ChakraProvider>{children}</ChakraProvider>
         </body>
     </html>
