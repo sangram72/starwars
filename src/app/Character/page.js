@@ -1,10 +1,10 @@
 
 "use client"
-import { useEffect, useState } from 'react';
+import { useEffect, useState ,Suspense} from 'react';
 import { Container, VStack, Center, Spinner } from '@chakra-ui/react';
 import CharacterDetail from '../../Components/CharacterDetail'; 
 import { useSearchParams } from 'next/navigation';
-
+// import {Suspense} from "react";
 const characterImages = [
   '/luke.jpeg',
   '/c3.jpg',
@@ -47,6 +47,7 @@ export default function CharacterPage() {
 
   return (
     <Container maxW="container.md" py={4} centerContent>
+        <Suspense>
       {character ? (
         <CharacterDetail character={character} />
       ) : (
@@ -54,6 +55,7 @@ export default function CharacterPage() {
           <Spinner size="xl" />
         </Center>
       )}
+      </Suspense>
     </Container>
   );
 }
