@@ -1,4 +1,4 @@
-
+"use client"
 import { Box, Text, Heading, VStack, Spinner ,Center,Image} from '@chakra-ui/react';
 
 const CharacterDetail = ({ character }) => {
@@ -10,7 +10,7 @@ const CharacterDetail = ({ character }) => {
     <Center minH="100vh">
     <Box borderWidth={1} borderRadius="lg" p={4} boxShadow="md" maxWidth="600px" width="100%" bg="white"
       _hover={{ bg: 'teal.100' }}>
-         <Image src="/starwars.jpg" />
+          {character.image && <Image src={character.image}  mb={4} height="170px" width="100%" borderRadius="10px"/>}
       <VStack spacing={1}>
         <Heading as="h3" size="lg">
           {character.name}
