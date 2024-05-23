@@ -1,34 +1,33 @@
-
 import React from 'react';
-import { Box, Flex, Link as ChakraLink, Text,Button } from '@chakra-ui/react';
+import { Box, Flex, Link as ChakraLink, Text, Button, Input } from '@chakra-ui/react';
 import Link from 'next/link';
 
-const Navbar = ({ showFavorites, toggleFavoritesVisibility }) => {
+const Navbar = ({ showFavorites, toggleFavoritesVisibility, onSearch }) => {
   return (
-    <Box bg="white" color="black" py={4}>
-      <Flex justify="space-between" align="center" px={8} maxW="container.lg" mx="auto">
-        <Link href="/" >
-      
-            <Text fontWeight="bold">Star Wars Characters</Text>
-        
+    <Box bg="black" color="white" py={4} width="100%" >
+      <Flex justify="space-between" align="center" px={{ base: 4, md: 8 }} maxW="container.lg" mx="auto" wrap="wrap">
+        <Link href="/" passHref>
+          <ChakraLink>
+            <Text fontWeight="bold" fontSize={{ base: 'md', md: 'lg' }}>Star Wars Characters</Text>
+          </ChakraLink>
         </Link>
-        <Flex>
-   
-          
-         
-            {/* <ChakraLink mx={2} onClick={toggleFavoritesVisibility}>
-             
-            </ChakraLink> */}
-           
-            {showFavorites ?
-             <Button colorScheme='white' size='xs' variant='outline' onClick={toggleFavoritesVisibility}>Hide Favorites</Button>:
-              <Button colorScheme='white' size='xs' variant='outline' onClick={toggleFavoritesVisibility}>Favorites</Button>
-             }
-   
-   
-          {/* <NextLink href="/favorites" passHref>
-            <ChakraLink mx={2}>Favorites</ChakraLink>
-          </NextLink> */}
+        <Flex mt={{ base: 2, md: 0 }} align="center">
+          <Input
+            type="text"
+            placeholder="Search"
+            size="sm"
+            onChange={(e) => onSearch(e.target.value)}
+            mr={2}
+          />
+          {showFavorites ? (
+            <Button size="sm" color="white" variant="outline" onClick={toggleFavoritesVisibility}>
+              Hide Favorites
+            </Button>
+          ) : (
+            <Button size="sm" color="white" variant="outline" onClick={toggleFavoritesVisibility}>
+              Favorites
+            </Button>
+          )}
         </Flex>
       </Flex>
     </Box>
