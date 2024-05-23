@@ -1,32 +1,22 @@
-
 "use client"
-import { Box, Heading, Text, VStack,Flex } from '@chakra-ui/react';
+import { VStack, Flex } from '@chakra-ui/react';
 import CharacterItem from './CharacterItem';
 
-const FavoriteCharacters = ({ favorites, toggleFavorite,character }) => {
+const FavoriteCharacters = ({ favorites, toggleFavorite }) => {
   return (
-    // <Box p={4} borderWidth={1} borderRadius="lg" width="100%">
-      <>
-      {/* // <Box p={4} borderWidth={1} borderRadius="lg" width="100%"> */}
-      <Heading as="h2" size="md" color="white" textAlign="center">Favorites</Heading><Flex wrap="wrap" justify="space-between" width="100%" marginTop="5%">
+    <VStack spacing={4} align="center" width="100%">
+      <Flex wrap="wrap" justify="space-between" width="100%">
         {favorites.map((character) => (
           <CharacterItem
             key={character.name}
             character={character}
             toggleFavorite={toggleFavorite}
-            favorites={favorites} />
+            favorites={favorites}
+          />
         ))}
-
       </Flex>
-      </>
-    // </Box>
+    </VStack>
   );
 };
 
 export default FavoriteCharacters;
-
-
-
-
-
-
