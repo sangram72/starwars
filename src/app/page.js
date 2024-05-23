@@ -39,8 +39,7 @@ export default function Home() {
           id: character.url.match(/\/([0-9]*)\/$/)[1], 
           image: index < 10 ? characterImages[index] : null,
         })));
-        // setNextPage(data.next);
-        // setPrevPage(data.previous);
+     
       } catch (error) {
         console.error('Error fetching characters:', error);
       } finally {
